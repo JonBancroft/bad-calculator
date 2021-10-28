@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from decimal import *
 import re
 
 root = Tk()
@@ -10,7 +11,7 @@ content = ttk.Frame(root)
 def buttonPressed(buttonPushed):
     # initialize variables
     displayText = display.get()
-    displayNum = float(displayText)
+    displayNum = Decimal(displayText)
     rememberText = remember.get()
 
     global displayDelete
@@ -122,9 +123,9 @@ def buttonPressed(buttonPushed):
 
 def numText(numText):
     if float(numText).is_integer():
-        return str(int(float(numText)))
+        return str(int(Decimal(numText)))
     else:
-        return str(float(numText))
+        return str(Decimal(numText))
 
 
 def calculate():
